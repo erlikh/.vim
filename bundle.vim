@@ -5,18 +5,6 @@ let s:darwin = has('mac')
 
     NeoBundleFetch 'Shougo/neobundle.vim'
 
-    " Interactive command execution in Vim
-    NeoBundle 'Shougo/vimproc', {
-        \ 'build' : {
-        \     'windows' : 'make -f make_mingw32.mak',
-        \     'cygwin' : 'make -f make_cygwin.mak',
-        \     'mac' : 'make -f make_mac.mak',
-        \     'unix' : 'make -f make_unix.mak',
-        \    },
-        \ }
-
-    NeoBundle 'mattn/webapi-vim'
-
     " a Git wrapper so awesome, it should be illegal
     NeoBundle 'tpope/vim-fugitive'
     cabbrev git Git
@@ -43,15 +31,6 @@ let s:darwin = has('mac')
     let g:Gitv_WipeAllOnClose = 1
     let g:Gitv_DoNotMapCtrlKey = 1
 
-    " vimscript for gist
-    NeoBundle 'mattn/gist-vim', {
-        \ 'lazy': 1,
-        \ 'autoload': {'commands': 'Gist'}}
-
-    NeoBundle 'junegunn/vim-github-dashboard', {
-        \ 'lazy': 1,
-        \ 'autoload': {'commands': ['GHDashboard', 'GHActivity']}}
-
 " }}}
 
 
@@ -65,7 +44,7 @@ let s:darwin = has('mac')
     NeoBundle "unphased/vim-fakeclip"
 
     " browse the vim undo tree
-    NeoBundle 'mbbill/undotree', { 
+    NeoBundle 'mbbill/undotree', {
         \ 'lazy': 1,
         \ 'autoload' : {'commands': 'UndotreeToggle'}}
     let g:undotree_WindowLayout = 3
@@ -78,9 +57,9 @@ let s:darwin = has('mac')
 " ==========
 
     " A tree explorer plugin for vim.
-    NeoBundle 'scrooloose/nerdtree', { 
+    NeoBundle 'scrooloose/nerdtree', {
         \ 'lazy': 1,
-        \ 'autoload' : {'commands': ['NERDTreeToggle', 'NERDTreeFind']}} 
+        \ 'autoload' : {'commands': ['NERDTreeToggle', 'NERDTreeFind']}}
 
     let NERDTreeWinSize = 30
 
@@ -103,7 +82,7 @@ let s:darwin = has('mac')
     " Vim plugin that displays tags in a window, ordered by class etc.
     NeoBundle "majutsushi/tagbar", {
         \ 'lazy': 1,
-        \ 'autoload' : {'commands': 'TagbarToggle'}} 
+        \ 'autoload' : {'commands': 'TagbarToggle'}}
 
     let g:tagbar_width = 30
     let g:tagbar_foldlevel = 1
@@ -122,7 +101,7 @@ let s:darwin = has('mac')
     if s:darwin
         NeoBundle "rizzatti/dash.vim", {
             \ 'lazy': 1,
-            \ 'autoload' : {'commands': ['Dash', 'DashKeywords']}} 
+            \ 'autoload' : {'commands': ['Dash', 'DashKeywords']}}
         nnoremap <silent> <leader>dd :Dash<CR>
     endif
 
@@ -159,9 +138,7 @@ let s:darwin = has('mac')
     " Exchange objects
     NeoBundle "tommcdo/vim-exchange"
 
-    " NeoBundle "tpope/vim-rsi"
-
-" }}}   
+" }}}
 
 
 " Languages {{{
@@ -174,6 +151,7 @@ let s:darwin = has('mac')
     NeoBundle 'mattn/emmet-vim', {
         \ 'lazy': 1,
         \ 'autoload': {'filetypes': ['html', 'xhtml', 'css', 'xml', 'xls', 'markdown']}}
+
     autocmd BufNewFile,BufRead *.md setf markdown
 
     NeoBundle 'groenewege/vim-less', {
@@ -185,46 +163,6 @@ let s:darwin = has('mac')
         \ 'lazy': 1,
         \ 'autoload': {'filetypes': ['coffee']}}
 
-    NeoBundle "python-mode", {
-        \ 'lazy': 1,
-        \ 'autoload': {'filetypes': ['python']}}
-    let g:pymode_breakpoint_bind = '<leader>bb'
-    let g:pymode_completion_provider = 'jedi'
-    let g:pymode_lint_checkers = ['pylint', 'pep8', 'pep257', 'pyflakes', 'mccabe']
-    let g:pymode_lint_ignore = 'C0111'
-    let g:pymode_lint_sort = ['E', 'C', 'W', 'R', 'I', 'F', 'D']
-    let g:pymode_lint_unmodified = 1
-    let g:pymode_options_max_line_length = 99
-    let g:pymode_rope_lookup_project = 0
-    let g:pymode_syntax_highlight_equal_operator = 0
-    " let g:pymode_debug = 1
-    " let g:pymode_python = 'python3'
-
-    NeoBundle "fatih/vim-go", {
-        \ 'lazy': 1,
-        \ 'autoload': {'filetypes': ['go']}}
-    au BufNewFile,BufRead *.go set ft=go nu
-    au FileType go nnoremap <buffer><leader>r :GoRun<CR>
-    au FileType go nnoremap <buffer><C-c>d :GoDef<CR>
-    au FileType go setlocal tabstop=4
-    au FileType go setlocal softtabstop=4
-    let g:go_disable_autoinstall = 1
-
-    NeoBundle "chase/vim-ansible-yaml", {
-        \ 'lazy': 1,
-        \ 'autoload': {'filetypes': ['yaml', 'ansible']}}
-
-    NeoBundle "mitsuhiko/vim-jinja", {
-        \ 'lazy': 1,
-        \ 'autoload': {'filetypes': ['jinja']}}
-    au BufNewFile,BufRead *.j2 set ft=jinja
-    let g:htmljinja_disable_html_upgrade = 1
-
-
-    NeoBundle "wavded/vim-stylus", {
-        \ 'lazy': 1,
-        \ 'autoload': {'filetypes': ['styl']}}
-    au BufNewFile,BufRead *.styl set ft=stylus nu
 
     NeoBundle "pangloss/vim-javascript", {
         \ 'lazy': 1,
@@ -239,23 +177,13 @@ let s:darwin = has('mac')
     au BufNewFile,BufRead *.jade setf jade
     au BufNewFile,BufRead *.jade set sw=2 ts=2 sts=2
 
-    " NeoBundle "klen/vim-jsmode"
-    " NeoBundle 'saltstack/salt-vim'
 
 " }}}
 
 
-" Templates {{{
 " =============
 
-    " Code snippets engine for Vim, with snippets library
-    NeoBundle 'drmingdrmer/xptemplate'
 
-    let g:xptemplate_key = '<Tab>'
-    let g:xptemplate_key_pum_only = '<S-Tab>'
-    " let g:xptemplate_highlight = 'following'
-    let g:xptemplate_vars = 'author=Kirill Klenov&email=horneds@gmail.com&SPfun=&SParg=&PYTHON_EXP_SYM= as '
-    let g:xptemplate_brace_complete = 1
 
 " }}}
 
@@ -274,10 +202,6 @@ let s:darwin = has('mac')
 " }}}
 
 
-" Show reports from coverage.py
-" NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
-
-
 " NERDCommenter {{{
 " =============
 
@@ -287,6 +211,7 @@ let s:darwin = has('mac')
     let g:NERDCustomDelimiters = { 'ansible': { 'left': '#'} }
 
 " }}}
+
 
 " Startify {{{
 " ========
@@ -321,26 +246,6 @@ let s:darwin = has('mac')
     let g:vimwiki_fold_lists = 1
     let g:vimwiki_list = [{"path" : "~/Dropbox/wiki"}, {"path" : "~/Dropbox/wiki/english"}]
     nmap <Leader>wv <Plug>VimwikiIndex
-
-" }}}
-
-" NeoBundle 'dahu/LearnVim'
-
-NeoBundle 'tpope/vim-characterize'
-
-
-" git-slides {{{
-" ==========
-
-    " NeoBundle 'gelisam/git-slides'
-
-" }}}
-
-
-" Unite {{{
-" =====
-
-    " source $HOME/.vim/unite.vim
 
 " }}}
 

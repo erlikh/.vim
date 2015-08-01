@@ -8,7 +8,7 @@
         inoremap <c-]> <c-x><c-]>
 
     " }}}
-    
+
     " Normal mode {{{
     " ------------
 
@@ -100,7 +100,7 @@
         inoremap <silent> <C-F> <C-^>
         nnoremap <silent> <C-F> a<C-^><Esc>
         vnoremap <silent> <C-F> <Esc>a<C-^><Esc>gv
-    
+
         " Switch options
         nnoremap <silent> <leader>op :set paste! paste?<CR>
         nnoremap <silent> <leader>ol :set list! list?<CR>
@@ -130,7 +130,7 @@
             echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
         endfunc
 
-  
+
     " }}}
 
     " Command mode {{{
