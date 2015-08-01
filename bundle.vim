@@ -143,6 +143,9 @@ let s:darwin = has('mac')
 
 " Languages {{{
 " =============
+    NeoBundle 'elmcast/elm-vim', {
+        \ 'lazy': 1,
+        \ 'autoload': {'filetypes': ['elm']}}
 
     NeoBundle 'othree/html5.vim', {
         \ 'lazy': 1,
@@ -163,6 +166,8 @@ let s:darwin = has('mac')
         \ 'lazy': 1,
         \ 'autoload': {'filetypes': ['coffee']}}
 
+    NeoBundle "wavded/vim-stylus"
+    au BufNewFile,BufRead *.styl setf stylus
 
     NeoBundle "pangloss/vim-javascript", {
         \ 'lazy': 1,
@@ -177,13 +182,34 @@ let s:darwin = has('mac')
     au BufNewFile,BufRead *.jade setf jade
     au BufNewFile,BufRead *.jade set sw=2 ts=2 sts=2
 
+    NeoBundle 'slim-template/vim-slim.git'
+    au BufNewFile,BufRead *.slim setf slim
 
 " }}}
 
 
+" Autocomplete {{{
+" ================
+
+    NeoBundle 'Valloric/YouCompleteMe'
+    NeoBundle 'marijnh/tern_for_vim'
+
+" }}}
+"
+"
+" Hard Mode {{{
 " =============
 
+    NeoBundle 'wikitopian/hardmode'
+    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
+" }}}
+
+
+" Whitespace {{{
+" ==============
+
+  NeoBundle 'ntpeters/vim-better-whitespace'
 
 " }}}
 
