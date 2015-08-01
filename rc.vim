@@ -12,7 +12,7 @@ scriptencoding utf-8
         set nocompatible                           " enable vim features
 
         set backupdir=$HOME/.cache/vim/backup      " where to put backup files
-        set backup                                 " make backup file and leave it around 
+        set backup                                 " make backup file and leave it around
         set backupskip+=svn-commit.tmp,svn-commit.[0-9]*.tmp
 
         set directory=/tmp                         " where to put swap files
@@ -40,7 +40,7 @@ scriptencoding utf-8
     endif
 
 " }}}
-    
+
 
 " Options {{{
 " =======
@@ -79,8 +79,8 @@ scriptencoding utf-8
     set smartindent             " enable nice indent
     set expandtab               " tab with spaces
     set smarttab                " indent using shiftwidth"
-    set shiftwidth=4            " number of spaces to use for each step of indent
-    set softtabstop=4           " tab like 4 spaces
+    set shiftwidth=2            " number of spaces to use for each step of indent
+    set softtabstop=2           " tab like 4 spaces
     set shiftround              " drop unused spaces
 
     " Search options
@@ -199,7 +199,7 @@ scriptencoding utf-8
     " Some gui settings
     if has("gui_running")
         set guioptions=agimP
-        set guifont=Monaco\ 12
+        set guifont=Monaco
         set mouse=a
     endif
 
@@ -213,7 +213,7 @@ scriptencoding utf-8
 " ==========
 
     " Recursive vimgrep
-    fun! rc#RGrep() "{{{ 
+    fun! rc#RGrep() "{{{
         let pattern = input("Search for pattern: ", expand("<cword>"))
         if pattern == ""
             return
@@ -225,7 +225,7 @@ scriptencoding utf-8
             return
         endif
 
-        let filepattern = input("Search in files matching pattern: ", "*.*") 
+        let filepattern = input("Search in files matching pattern: ", "*.*")
         if filepattern == ""
             return
         endif
@@ -236,7 +236,7 @@ scriptencoding utf-8
         catch /.*/
             echohl WarningMsg | echo "Not found: ".pattern | echohl None
         endtry
-    endfun "}}} 
+    endfun "}}}
 
     " Restore cursor position
     fun! rc#restore_cursor() "{{{
@@ -310,19 +310,19 @@ scriptencoding utf-8
             au BufWinEnter * call rc#restore_cursor()
 
             " Autosave last session
-            if has('mksession') 
+            if has('mksession')
                 au VimLeavePre * exe "mks! " g:SESSION_DIR.'/last.vim'
             endif
 
             " Filetypes {{{
             " ---------
-            
+
                 au BufNewFile,BufRead *.json setf javascript
 
             " }}}
-            
+
             " Auto close preview window
-            autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
+            autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
             autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
             " Unset paste on InsertLeave
