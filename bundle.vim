@@ -188,6 +188,21 @@ let s:darwin = has('mac')
 " }}}
 
 
+" Templates {{{
+" =============
+
+    " Code snippets engine for Vim, with snippets library
+    NeoBundle 'drmingdrmer/xptemplate'
+
+    let g:xptemplate_key = '<Tab>'
+    let g:xptemplate_key_pum_only = '<S-Tab>'
+    " let g:xptemplate_highlight = 'following'
+    let g:xptemplate_vars = 'author=Kirill Klenov&email=horneds@gmail.com&SPfun=&SParg=&PYTHON_EXP_SYM= as '
+    let g:xptemplate_brace_complete = 1
+
+" }}}
+
+
 " Autocomplete {{{
 " ================
 
@@ -195,8 +210,8 @@ let s:darwin = has('mac')
     NeoBundle 'marijnh/tern_for_vim'
 
 " }}}
-"
-"
+
+
 " Hard Mode {{{
 " =============
 
