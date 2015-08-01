@@ -138,6 +138,19 @@ scriptencoding utf-8
 
     set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 
+    "Open new split panes to right and bottom, which feels more natural
+    set splitbelow
+    set splitright
+
+    "Always use vertical diffs
+    set diffopt+=vertical
+
+    "" Quicker window movement
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-l> <C-w>l
+
     " Undo
     if has('persistent_undo')
         set undofile            " enable persistent undo
