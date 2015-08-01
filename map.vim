@@ -6,6 +6,7 @@
 
         inoremap <c-f> <c-x><c-f>
         inoremap <c-]> <c-x><c-]>
+        inoremap ii <esc>
 
     " }}}
 
