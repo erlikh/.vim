@@ -199,7 +199,7 @@ scriptencoding utf-8
     " Some gui settings
     if has("gui_running")
         set guioptions=agimP
-        set guifont=Monaco
+        set guifont=Monaco:h12
         set mouse=a
     endif
 
