@@ -187,6 +187,10 @@ let s:darwin = has('mac')
 
 " }}}
 
+" Adapting to file options like identation {{{
+" ============================================
+    NeoBundle 'tpope/vim-sleuth'
+" }}}
 
 " NERDCommenter {{{
 " =============
