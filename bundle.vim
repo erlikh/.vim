@@ -79,25 +79,6 @@ let s:darwin = has('mac')
     let g:ctrlp_dont_split = 'NERD_tree_2'
     let g:ctrlp_map = '<leader>,'
 
-    " Vim plugin that displays tags in a window, ordered by class etc.
-    NeoBundle "majutsushi/tagbar", {
-        \ 'lazy': 1,
-        \ 'autoload' : {'commands': 'TagbarToggle'}}
-
-    let g:tagbar_width = 30
-    let g:tagbar_foldlevel = 1
-    let g:tagbar_type_rst = {
-        \ 'ctagstype': 'rst',
-        \ 'kinds': [ 'r:references', 'h:headers' ],
-        \ 'sort': 0,
-        \ 'sro': '..',
-        \ 'kind2scope': { 'h': 'header' },
-        \ 'scope2kind': { 'header': 'h' }
-    \ }
-
-    " Toggle tagbar
-    nnoremap <silent> <F3> :TagbarToggle<CR>
-
     if s:darwin
         NeoBundle "rizzatti/dash.vim", {
             \ 'lazy': 1,
@@ -113,6 +94,7 @@ let s:darwin = has('mac')
 
     " lean & mean statusline for vim that's light as air
     NeoBundle 'bling/vim-airline'
+    NeoBundle 'vim-airline/vim-airline-themes'
 
     let g:airline_detect_iminsert = 1
     let g:airline_left_sep = ''
@@ -130,30 +112,28 @@ let s:darwin = has('mac')
     let g:wildfire_fuel_map = "="
     let g:wildfire_water_map = "-"
 
-    " Quoting/parenthesizing made simple
-    NeoBundle 'tpope/vim-repeat'
-    NeoBundle 'tpope/vim-surround', {
-        \ 'depends': ['tpope/vim-repeat']}
-
-    " Exchange objects
-    NeoBundle "tommcdo/vim-exchange"
-
 " }}}
 
 
 " Languages {{{
 " =============
+    NeoBundle 'leafgarland/typescript-vim'
+
+    NeoBundle 'Shougo/vimproc.vim', {
+          \ 'build' : {
+          \     'windows' : 'tools\\update-dll-mingw',
+          \     'cygwin' : 'make -f make_cygwin.mak',
+          \     'mac' : 'make -f make_mac.mak',
+          \     'linux' : 'make',
+          \     'unix' : 'gmake',
+          \    },
+          \ }
+
+    NeoBundle 'Quramy/tsuquyomi'
+
     NeoBundle 'elmcast/elm-vim', {
         \ 'lazy': 1,
         \ 'autoload': {'filetypes': ['elm']}}
-
-    NeoBundle 'othree/html5.vim', {
-        \ 'lazy': 1,
-        \ 'autoload': {'filetypes': ['html', 'xhtml', 'css']}}
-
-    NeoBundle 'mattn/emmet-vim', {
-        \ 'lazy': 1,
-        \ 'autoload': {'filetypes': ['html', 'xhtml', 'css', 'xml', 'xls', 'markdown']}}
 
     autocmd BufNewFile,BufRead *.md setf markdown
 
@@ -168,6 +148,9 @@ let s:darwin = has('mac')
 
     NeoBundle "wavded/vim-stylus"
     au BufNewFile,BufRead *.styl setf stylus
+
+    NeoBundle "tpope/vim-rails"
+    NeoBundle "tpope/vim-bundler"
 
     NeoBundle "pangloss/vim-javascript", {
         \ 'lazy': 1,
@@ -188,21 +171,6 @@ let s:darwin = has('mac')
 " }}}
 
 
-" Templates {{{
-" =============
-
-    " Code snippets engine for Vim, with snippets library
-    NeoBundle 'drmingdrmer/xptemplate'
-
-    let g:xptemplate_key = '<Tab>'
-    let g:xptemplate_key_pum_only = '<S-Tab>'
-    " let g:xptemplate_highlight = 'following'
-    let g:xptemplate_vars = 'author=Kirill Klenov&email=horneds@gmail.com&SPfun=&SParg=&PYTHON_EXP_SYM= as '
-    let g:xptemplate_brace_complete = 1
-
-" }}}
-
-
 " Autocomplete {{{
 " ================
 
@@ -212,33 +180,10 @@ let s:darwin = has('mac')
 " }}}
 
 
-" Hard Mode {{{
-" =============
-
-    NeoBundle 'wikitopian/hardmode'
-    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-
-" }}}
-
-
 " Whitespace {{{
 " ==============
 
   NeoBundle 'ntpeters/vim-better-whitespace'
-
-" }}}
-
-
-" Syntax checkers {{{
-" ===================
-
-    NeoBundle 'scrooloose/syntastic'
-
-    " Disable syntastic for python (managed by python-mode)
-    let g:syntastic_mode_map = {
-        \ 'mode': 'active',
-        \ 'active_filetypes': [],
-        \ 'passive_filetypes': ['python'] }
 
 " }}}
 
