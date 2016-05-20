@@ -15,6 +15,10 @@
 
 	" F1 to be a context sensitive keyword-under-cursor lookup
 	nnoremap <F1> :help <C-R><C-W><CR>
+	nnoremap <F7> :set number!<CR>
+	nnoremap <F8> :set list!<CR>
+	nnoremap <F9> :set noexpandtab<CR>
+	nnoremap <F10> :set expandtab<CR>
 
 	" Reformat current paragraph
 	nnoremap Q gqap
