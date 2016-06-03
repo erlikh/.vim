@@ -131,6 +131,7 @@ let s:darwin = has('mac')
           \ }
 
     NeoBundle 'Quramy/tsuquyomi'
+    autocmd BufNewFile,BufRead *.ts,*.tsx setlocal filetype=typescript
 
     NeoBundle 'elmcast/elm-vim', {
         \ 'lazy': 1,
