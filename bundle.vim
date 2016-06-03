@@ -31,6 +31,7 @@ let s:darwin = has('mac')
     let g:Gitv_WipeAllOnClose = 1
     let g:Gitv_DoNotMapCtrlKey = 1
 
+    NeoBundle 'w0ng/vim-hybrid'
 " }}}
 
 

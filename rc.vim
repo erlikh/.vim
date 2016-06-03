@@ -15,6 +15,8 @@ scriptencoding utf-8
         set backup                                 " make backup file and leave it around
         set backupskip+=svn-commit.tmp,svn-commit.[0-9]*.tmp
 
+        set background=dark
+
         set directory=/tmp                         " where to put swap files
         let g:SESSION_DIR   = $HOME.'/.cache/vim/sessions'
 
@@ -181,11 +183,6 @@ scriptencoding utf-8
     let mapleader = ","
     let maplocalleader = " "
 
-    " Color themes
-    if !exists('g:colors_name')
-        colorscheme jellybeans
-    endif
-
     " Highlight VCS conflict markers
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
@@ -201,6 +198,15 @@ scriptencoding utf-8
         set guioptions=agimP
         set guifont=Monaco:h12
         set mouse=a
+    endif
+
+    if !has("gui_running")
+        set term=screen-256color
+    endif
+
+    " Color themes
+    if !exists('g:colors_name')
+        colorscheme hybrid
     endif
 
     " Enable extended matchit
