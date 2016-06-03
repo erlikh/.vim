@@ -51,6 +51,8 @@ let s:darwin = has('mac')
     let g:undotree_WindowLayout = 3
     nnoremap <leader>uu :UndotreeToggle<CR>
 
+    NeoBundle 'raimondi/delimitmate'
+
 " }}}
 
 
@@ -75,7 +77,7 @@ let s:darwin = has('mac')
     nnoremap <silent> <leader>f :NERDTreeFind<CR>
 
     " Find files
-    NeoBundle 'kien/ctrlp.vim'
+    NeoBundle 'ctrlpvim/ctrlp.vim'
 
     let g:ctrlp_dont_split = 'NERD_tree_2'
     let g:ctrlp_map = '<leader>,'
